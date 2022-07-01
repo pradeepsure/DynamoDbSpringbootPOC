@@ -1,0 +1,33 @@
+{
+    "event": [{
+        "eventType":{
+            "userInfo":{
+                "name":"Pradeep",
+                "emailAddress":"Hello123@gmail.com"
+            }
+        },
+        "updatedField":[{
+            "fieldName":"name",
+            "newValue":"Pradeep"
+        },{
+            "fieldName":"emailAddress",
+            "newValue":"Hello123@gmail.com"
+        }]
+    }],
+    "sourceType": "ADVISOR",
+    "fieldName": {
+        "name":"Name",
+		"emailAddress":"Hello123@gmail.com",
+        "phoneNumber":"+1-12345"
+    },
+    "eventTimeStamp": "2021-05-10",
+    "redId": "2",
+    "personId": "10",
+    "newVale": "hello",
+    "userId": "123",
+    "userAccountId": "12345",
+    "details": "Helo"
+}
+
+
+

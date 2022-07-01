@@ -1,0 +1,225 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 134217728 bytes for G1 virtual space
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Unscaled Compressed Oops mode in which the Java heap is
+#     placed in the first 4GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 4GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (./open/src/hotspot/os/windows/os_windows.cpp:3472), pid=20856, tid=12492
+#
+# JRE version:  (15.0.1+9) (build )
+# Java VM: OpenJDK 64-Bit Server VM (15.0.1+9-18, mixed mode, sharing, tiered, compressed oops, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -agentlib:jdwp=transport=dt_socket,address=127.0.0.1:65294,suspend=y,server=n -javaagent:C:\Users\venkata.naga.s.sure\AppData\Local\JetBrains\IdeaIC2020.2\captureAgent\debugger-agent.jar -Dfile.encoding=UTF-8 com.techgeeknext.SpringBootDynamodbExampleApplication
+
+Host: Intel(R) Core(TM) i5-8365U CPU @ 1.60GHz, 8 cores, 7G,  Windows 10 , 64 bit Build 19041 (10.0.19041.1706)
+Time: Thu Jun 16 17:49:13 2022 India Standard Time elapsed time: 0.044145 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000021afd44f7e0):  JavaThread "Unknown thread" [_thread_in_vm, id=12492, stack(0x0000002ed4100000,0x0000002ed4200000)]
+
+Stack: [0x0000002ed4100000,0x0000002ed4200000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x62ae9a]
+V  [jvm.dll+0x781389]
+V  [jvm.dll+0x782ae3]
+V  [jvm.dll+0x783143]
+V  [jvm.dll+0x216265]
+V  [jvm.dll+0x6281d9]
+V  [jvm.dll+0x61cd15]
+V  [jvm.dll+0x2d01fd]
+V  [jvm.dll+0x2d0062]
+V  [jvm.dll+0x2d603c]
+V  [jvm.dll+0x325b2a]
+V  [jvm.dll+0x3251f4]
+V  [jvm.dll+0x2a717a]
+V  [jvm.dll+0x2a8318]
+V  [jvm.dll+0x75e101]
+V  [jvm.dll+0x3343e4]
+V  [jvm.dll+0x73e826]
+V  [jvm.dll+0x3b7777]
+V  [jvm.dll+0x3b9201]
+C  [jli.dll+0x52fb]
+C  [ucrtbase.dll+0x21bb2]
+C  [KERNEL32.DLL+0x17034]
+C  [ntdll.dll+0x52651]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007ffaee044ff0, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x0000021afd48fb50 GCTaskThread "GC Thread#0" [stack: 0x0000002ed4200000,0x0000002ed4300000] [id=34636]
+  0x0000021afd4a07f0 ConcurrentGCThread "G1 Main Marker" [stack: 0x0000002ed4300000,0x0000002ed4400000] [id=1516]
+  0x0000021afd4a12f0 ConcurrentGCThread "G1 Conc#0" [stack: 0x0000002ed4400000,0x0000002ed4500000] [id=25692]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffaed838047]
+
+VM state: not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x0000021afd44aac0] Heap_lock - owner thread: 0x0000021afd44f7e0
+
+Heap address: 0x0000000081e00000, size: 2018 MB, Compressed Oops mode: 32-bit
+CDS archive(s) mapped at: [0x0000000000000000-0x0000000000000000-0x0000000000000000), size 0, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 0.
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0, Narrow klass range: 0x0
+
+Heap:
+ garbage-first heap   total 131072K, used 0K [0x0000000081e00000, 0x0000000100000000)
+  region size 1024K, 0 young (0K), 0 survivors (0K)
+ Metaspace       used 0K, capacity 0K, committed 0K, reserved 0K
+  class space    used 0K, capacity 0K, committed 0K, reserved 0K
+
+Heap Regions: E=young(eden), S=young(survivor), O=old, HS=humongous(starts), HC=humongous(continues), CS=collection set, F=free, OA=open archive, CA=closed archive, TAMS=top-at-mark-start (previous, next)
+
+Card table byte_map: [0x0000021afdc20000,0x0000021afe020000] _byte_map_base: 0x0000021afd811000
+
+Marking Bits (Prev, Next): (CMBitMap*) 0x0000021afd490250, (CMBitMap*) 0x0000021afd490290
+ Prev Bits: [0x0000021a97150000, 0x0000021a990d8000)
+ Next Bits: [0x0000021a990e0000, 0x0000021a9b068000)
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (1 events):
+Event: 0.035 Loaded shared library C:\Users\venkata.naga.s.sure\.jdks\openjdk-15.0.1\bin\java.dll
+
+
+Dynamic libraries:
+0x00007ff668860000 - 0x00007ff66886d000 	C:\Users\venkata.naga.s.sure\.jdks\openjdk-15.0.1\bin\java.exe
+0x00007ffb1a9f0000 - 0x00007ffb1abe5000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffb19560000 - 0x00007ffb1961d000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffb18220000 - 0x00007ffb184ed000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffb18890000 - 0x00007ffb18990000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffb12e60000 - 0x00007ffb12e79000 	C:\Users\venkata.naga.s.sure\.jdks\openjdk-15.0.1\bin\VCRUNTIME140.dll
+0x00007ffb12df0000 - 0x00007ffb12e08000 	C:\Users\venkata.naga.s.sure\.jdks\openjdk-15.0.1\bin\jli.dll
+0x00007ffb19910000 - 0x00007ffb19ab0000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffb066a0000 - 0x00007ffb0693a000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.1110_none_60b5254171f9507e\COMCTL32.dll
+0x00007ffb18100000 - 0x00007ffb18122000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffb18bf0000 - 0x00007ffb18c8e000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffb19620000 - 0x00007ffb1964a000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffb18520000 - 0x00007ffb1862b000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffb18130000 - 0x00007ffb181cd000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffb18c90000 - 0x00007ffb18cc0000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ffb17e40000 - 0x00007ffb17f42000 	C:\Program Files\Avecto\Privilege Guard Client\PGHook.dll
+0x00007ffb19140000 - 0x00007ffb191ee000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffb18b50000 - 0x00007ffb18bec000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffb1a490000 - 0x00007ffb1a5b5000 	C:\WINDOWS\System32\RPCRT4.dll
+0x0000000068000000 - 0x0000000068072000 	C:\WINDOWS\System32\QIPCAP64.dll
+0x00007ffb19b30000 - 0x00007ffb1a274000 	C:\WINDOWS\System32\SHELL32.dll
+0x00007ffb17410000 - 0x00007ffb174db000 	C:\WINDOWS\SYSTEM32\DNSAPI.dll
+0x00007ffb173d0000 - 0x00007ffb1740b000 	C:\WINDOWS\SYSTEM32\IPHLPAPI.DLL
+0x00007ffb19b20000 - 0x00007ffb19b28000 	C:\WINDOWS\System32\NSI.dll
+0x00007ffb14170000 - 0x00007ffb1417c000 	C:\Users\venkata.naga.s.sure\.jdks\openjdk-15.0.1\bin\vcruntime140_1.dll
+0x00007ffaef2d0000 - 0x00007ffaef361000 	C:\Users\venkata.naga.s.sure\.jdks\openjdk-15.0.1\bin\msvcp140.dll
+0x00007ffaed580000 - 0x00007ffaee0de000 	C:\Users\venkata.naga.s.sure\.jdks\openjdk-15.0.1\bin\server\jvm.dll
+0x00007ffb191f0000 - 0x00007ffb191f8000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ffb09090000 - 0x00007ffb09099000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ffb19ab0000 - 0x00007ffb19b1b000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffb0fc50000 - 0x00007ffb0fc77000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffb10660000 - 0x00007ffb1066a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffb16c30000 - 0x00007ffb16c42000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ffb140b0000 - 0x00007ffb140ba000 	C:\Users\venkata.naga.s.sure\.jdks\openjdk-15.0.1\bin\jimage.dll
+0x00007ffb16810000 - 0x00007ffb169f4000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ffb090a0000 - 0x00007ffb090cc000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ffb186a0000 - 0x00007ffb18722000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ffb04120000 - 0x00007ffb04159000 	C:\Users\venkata.naga.s.sure\.jdks\openjdk-15.0.1\bin\jdwp.dll
+0x00007ffb12e90000 - 0x00007ffb12e9e000 	C:\Users\venkata.naga.s.sure\.jdks\openjdk-15.0.1\bin\instrument.dll
+0x00007ffb10480000 - 0x00007ffb104a5000 	C:\Users\venkata.naga.s.sure\.jdks\openjdk-15.0.1\bin\java.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Users\venkata.naga.s.sure\.jdks\openjdk-15.0.1\bin;C:\WINDOWS\SYSTEM32;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.1110_none_60b5254171f9507e;C:\Program Files\Avecto\Privilege Guard Client;C:\Users\venkata.naga.s.sure\.jdks\openjdk-15.0.1\bin\server
+
+VM Arguments:
+jvm_args: -agentlib:jdwp=transport=dt_socket,address=127.0.0.1:65294,suspend=y,server=n -javaagent:C:\Users\venkata.naga.s.sure\AppData\Local\JetBrains\IdeaIC2020.2\captureAgent\debugger-agent.jar -Dfile.encoding=UTF-8 
+java_command: com.techgeeknext.SpringBootDynamodbExampleApplication
+java_class_path (initial): C:\Users\venkata.naga.s.sure\Documents\Learning\spring-boot-aws-dynamodb-crud-example-master\spring-boot-aws-dynamodb-crud-example-master\target\classes;C:\Users\venkata.naga.s.sure\.m2\repository\org\springframework\boot\spring-boot-starter-web\2.3.4.RELEASE\spring-boot-starter-web-2.3.4.RELEASE.jar;C:\Users\venkata.naga.s.sure\.m2\repository\org\springframework\boot\spring-boot-starter\2.3.4.RELEASE\spring-boot-starter-2.3.4.RELEASE.jar;C:\Users\venkata.naga.s.sure\.m2\repository\org\springframework\boot\spring-boot\2.3.4.RELEASE\spring-boot-2.3.4.RELEASE.jar;C:\Users\venkata.naga.s.sure\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\2.3.4.RELEASE\spring-boot-autoconfigure-2.3.4.RELEASE.jar;C:\Users\venkata.naga.s.sure\.m2\repository\org\springframework\boot\spring-boot-starter-logging\2.3.4.RELEASE\spring-boot-starter-logging-2.3.4.RELEASE.jar;C:\Users\venkata.naga.s.sure\.m2\repository\ch\qos\logback\logback-classic\1.2.3\logback-classic-1.2.3.jar;C:\Users\venkata.naga.s.sure\.m2\repository\ch\qos\logback\logback-core\1.2.3\logback-core-1.2.3.jar;C:\Users\venkata.naga.s.sure\.m2\repository\org\slf4j\slf4j-api\1.7.30\slf4j-api-1.7.30.jar;C:\Users\venkata.naga.s.sure\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.13.3\log4j-to-slf4j-2.13.3.jar;C:\Users\venkata.naga.s.sure\.m2\repository\org\apache\logging\log4j\log4j-api\2.13.3\log4j-api-2.13.3.jar;C:\Users\venkata.naga.s.sure\.m2\repository\org\slf4j\jul-to-slf4j\1.7.30\jul-to-slf4j-1.7.30.jar;C:\Users\venkata.naga.s.sure\.m2\repository\jakarta\annotation\jakarta.annotation-api\1.3.5\jakarta.annotation-api-1.3.5.jar;C:\Users\venkata.naga.s.sure\.m2\repository\org\springframework\spring-core\5.2.9.RELEASE\spring-core-5.2.9.RELEASE.jar;C:\Users\venkata.naga.s.sure\.m2\repository\org\springframework\spring-jcl\5.2.9.RELEASE\spring-jcl-5.2.9.RELEASE.jar;C:\Users\venkata.naga.s.sure\.m2\repository\org\yaml\snakeyaml\1.26\snakeyaml-1.26.jar;C:\Users\venkata.naga
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 2                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 8                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 134217728                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 2116026368                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5839372                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122909434                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122909434                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 2116026368                             {manageable} {ergonomic}
+     bool UseCompressedClassPointers               = true                                 {lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                                 {lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+JAVA_HOME=C:\Program Files (x86)\Java\jre1.8.0_271;
+PATH=C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;C:\Users\venkata.naga.s.sure\AppData\Roaming;C:\Program Files (x86)\Symantec\VIP Access Client\;C:\Program Files\Amazon\AWSCLI\;C:\Program Files (x86)\Pulse Secure\VC142.CRT\X64\;C:\Program Files (x86)\Pulse Secure\VC142.CRT\X86\;C:\Program Files (x86)\Common Files\Pulse Secure\VC142.CRT\X64\;C:\Program Files (x86)\Common Files\Pulse Secure\VC142.CRT\X86\;C:\Users\venkata.naga.s.sure\AppData\Local\Microsoft\WindowsApps;C:\Users\venkata.naga.s.sure\AppData\Roaming\npm;C:\Users\venkata.naga.s.sure\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.2.3\bin;;C:\Program Files (x86)\Java\jre1.8.0_271;\bin;
+USERNAME=venkata.naga.s.sure
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 142 Stepping 12, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 10 , 64 bit Build 19041 (10.0.19041.1706)
+OS uptime: 7 days 4:43 hours
+
+CPU: total 8 (initial active 8) (4 cores per cpu, 2 threads per core) family 6 model 142 stepping 12 microcode 0xec, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, vzeroupper, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx, fma, clflush, clflushopt
+
+Memory: 4k page, system-wide physical 8068M (620M free)
+TotalPageFile size 23100M (AvailPageFile size 622M)
+current process WorkingSet (physical memory assigned to process): 12M, peak: 12M
+current process commit charge ("private bytes"): 61M, peak: 189M
+
+vm_info: OpenJDK 64-Bit Server VM (15.0.1+9-18) for windows-amd64 JRE (15.0.1+9-18), built on Sep 15 2020 14:39:31 by "mach5one" with unknown MS VC++:1925
+
+END.
